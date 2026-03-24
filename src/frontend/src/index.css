@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* EngiViz Design Tokens — OKLCH */
+    --background: 0.97 0.015 220;
+    --foreground: 0.18 0.05 240;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.05 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.05 240;
+    --primary: 0.63 0.11 200;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.94 0.02 220;
+    --secondary-foreground: 0.18 0.05 240;
+    --muted: 0.96 0.015 220;
+    --muted-foreground: 0.45 0.04 240;
+    --accent: 0.63 0.11 200;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.55 0.18 25;
+    --destructive-foreground: 1 0 0;
+    --border: 0.91 0.025 220;
+    --input: 0.91 0.025 220;
+    --ring: 0.63 0.11 200;
+    --radius: 0.75rem;
+
+    /* Custom semantic tokens */
+    --navy: 0.18 0.05 240;
+    --navy-dark: 0.14 0.055 245;
+    --teal: 0.63 0.11 200;
+    --teal-hover: 0.58 0.12 200;
+    --slate: 0.38 0.04 240;
+    --hero-bg: 0.97 0.015 220;
+    --card-border: 0.91 0.025 220;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+  .bg-navy-dark {
+    background-color: oklch(var(--navy-dark));
+  }
+  .text-teal {
+    color: oklch(var(--teal));
+  }
+  .bg-teal {
+    background-color: oklch(var(--teal));
+  }
+  .bg-hero {
+    background: linear-gradient(135deg, #eaf6ff 0%, #f7fcff 100%);
+  }
+  .text-navy {
+    color: oklch(var(--navy));
+  }
+  .text-slate {
+    color: oklch(var(--slate));
+  }
+  .border-card {
+    border-color: oklch(var(--card-border));
+  }
+}
+
+/* Float animation for hero image */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Fade-in for concept cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in-up-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Hero grid lines */
+.hero-grid {
+  background-image: linear-gradient(
+      rgba(15, 166, 179, 0.08) 1px,
+      transparent 1px
+    ), linear-gradient(90deg, rgba(15, 166, 179, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Card gradient headers */
+.card-gradient-mechanics {
+  background: linear-gradient(135deg, #0fa6b3 0%, #0b6b8a 100%);
+}
+.card-gradient-thermo {
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+}
+.card-gradient-electrical {
+  background: linear-gradient(135deg, #eab308 0%, #f97316 100%);
+}
+.card-gradient-fluid {
+  background: linear-gradient(135deg, #3b82f6 0%, #0fa6b3 100%);
+}
